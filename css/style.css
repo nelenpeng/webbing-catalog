@@ -79,10 +79,81 @@ header p {
   margin: 10px 0;
 }
 
-/* 手机适配 */
+/* ============ 新增：Header Banner ============ */
+.header-banner {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 30px; /* 与下方标题保持间距 */
+  border-radius: 0; /* 如果不需要圆角可设为0 */
+}
+
+/* ============ 新增：左右图文模块 ============ */
+.content-block {
+  display: flex;
+  width: 100%;
+  padding: 40px 20px;
+  gap: 60px; /* 图文之间的间距 */
+  align-items: center;
+  background: #ffffff;
+}
+
+.content-text {
+  flex: 1;
+  max-width: 50%;
+}
+.content-image {
+  flex: 1;
+  max-width: 50%;
+}
+.content-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.content-text h2 {
+  font-size: 1.8rem;
+  color: #2c3e50;
+  margin-bottom: 16px;
+}
+.content-text p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #555;
+}
+
+/* 左文右图（默认） */
+.content-block.text-left {
+  flex-direction: row;
+}
+
+/* 左图右文 */
+.content-block.text-right {
+  flex-direction: row-reverse;
+}
+
+/* ============ 手机端适配 ============ */
 @media (max-width: 768px) {
-  header h1 { font-size: 1.8rem; }
-  .text-overlay { margin-top: -20px; padding: 15px; }
-  .text-overlay h2 { font-size: 1.3rem; }
-  .text-overlay p { font-size: 1rem; }
+  .header-banner {
+    margin-bottom: 20px;
+  }
+
+  .content-block {
+    flex-direction: column !important; /* 强制上下堆叠 */
+    padding: 30px 15px;
+    gap: 20px;
+  }
+  .content-text,
+  .content-image {
+    max-width: 100% !important;
+    width: 100%;
+  }
+  .content-text h2 {
+    font-size: 1.5rem;
+  }
+  .content-text p {
+    font-size: 1rem;
+  }
 }
